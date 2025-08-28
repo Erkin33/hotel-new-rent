@@ -642,6 +642,7 @@ function HelpWidget() {
             ))}
           </div>
           <div className="p-3 flex gap-2 border-t border-black/10">
+{/*              */}
             <input
               value={text}
               onChange={(e) => setText(e.target.value)}
