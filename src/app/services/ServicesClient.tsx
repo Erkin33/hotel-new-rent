@@ -647,7 +647,7 @@ function HelpWidget() {
               onChange={(e) => setText(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && send()}
               placeholder="Type your question…"
-              className="flex-1 h-10 rounded-md border border-black/10 px-3 outline-none"
+              className="flex-1 h-10 rounded-md border border-black/10 px-3 outline-none max-[350px]:w-[60%]"
             />
             <button onClick={send} className="h-10 px-4 rounded-md bg-[#1E2352] text-white font-semibold">
               Send
