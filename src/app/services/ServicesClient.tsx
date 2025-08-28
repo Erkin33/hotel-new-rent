@@ -142,6 +142,7 @@ function Hero() {
             <div key={c.label} className="rounded-xl bg-white/10 p-3 sm:p-4 text-center">
               <div className="text-[20px] max-[400px]:text-[14px] sm:text-2xl font-extrabold">{vals[i].toLocaleString()}</div>
               <div className="text-[11px] sm:text-[12px] text-white/80">{c.label}</div>
+              {/*  */}
             </div>
           ))}
         </div>
