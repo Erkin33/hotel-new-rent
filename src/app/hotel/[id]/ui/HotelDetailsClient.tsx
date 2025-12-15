@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState,useEffect } from "react";
 import { getHotelById, ROOM_TYPES, fmtUSD } from "@/app/lib/hotels";
 
 /* ================= helpers / types ================= */
@@ -64,14 +64,20 @@ export default function HotelDetailsClient({
     open: false,
   });
   const [tab, setTab] = useState<"overview" | "amenities" | "rooms" | "policies" | "reviews" | "location">("overview");
-  const [fav, setFav] = useState<boolean>(() => {
-    try {
-      const raw = localStorage.getItem("favorites") || "[]";
-      return JSON.parse(raw).includes(hotel.id);
-    } catch {
-      return false;
-    }
-  });
+ const [fav, setFav] = useState(false);
+const [favMounted, setFavMounted] = useState(false);
+useEffect(() => {
+  try {
+    const raw = localStorage.getItem("favorites") || "[]";
+    const arr: string[] = JSON.parse(raw);
+    setFav(arr.includes(hotel.id));
+  } catch {
+    setFav(false);
+  } finally {
+    setFavMounted(true);
+  }
+}, [hotel.id]);
+
 
   const toggleFav = () => {
     try {
@@ -222,11 +228,12 @@ export default function HotelDetailsClient({
             </button>
             <span className="mx-1 text-black/20">•</span>
             <button
-              onClick={toggleFav}
-              className={`px-2 py-1 rounded border ${fav ? "bg-rose-50 border-rose-200 text-rose-700" : "border-black/15"}`}
-            >
-              {fav ? "♥ Saved" : "♡ Save"}
-            </button>
+  onClick={toggleFav}
+  className={`px-2 py-1 rounded border ${fav ? "bg-rose-50 border-rose-200 text-rose-700" : "border-black/15"}`}
+>
+  {fav ? "♥ Saved" : "♡ Save"}
+</button>
+
           </div>
 
           {/* tabs */}

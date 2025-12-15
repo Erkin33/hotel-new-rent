@@ -99,10 +99,10 @@ export default function Footer() {
 
           {/* иконки уменьшаем на lg, расширяем на xl; разрешаем перенос */}
           <div className="h-auto flex flex-wrap gap-3 sm:gap-4 items-center">
-            <img src="/Icons/twitter.svg"  alt="X"         className="w-[34px] h-[34px] sm:w-[38px] sm:h-[38px] lg:w-[40px] lg:h-[40px] xl:w-[48px] xl:h-[48px]" />
-            <img src="/Icons/in.svg"       alt="LinkedIn"  className="w-[34px] h-[34px] sm:w-[38px] sm:h-[38px] lg:w-[40px] lg:h-[40px] xl:w-[48px] xl:h-[48px]" />
-            <img src="/Icons/watsapp.svg"  alt="WhatsApp"  className="w-[34px] h-[34px] sm:w-[38px] sm:h-[38px] lg:w-[40px] lg:h-[40px] xl:w-[48px] xl:h-[48px]" />
-            <img src="/Icons/facebook.svg" alt="Facebook"  className="w-[34px] h-[34px] sm:w-[38px] sm:h-[38px] lg:w-[40px] lg:h-[40px] xl:w-[48px] xl:h-[48px]" />
+            <a href="#"><img src="/Icons/twitter.svg"  alt="X"         className="w-[34px] h-[34px] sm:w-[38px] sm:h-[38px] lg:w-[40px] lg:h-[40px] xl:w-[48px] xl:h-[48px]" /></a>
+            <a href="#"><img src="/Icons/in.svg"       alt="LinkedIn"  className="w-[34px] h-[34px] sm:w-[38px] sm:h-[38px] lg:w-[40px] lg:h-[40px] xl:w-[48px] xl:h-[48px]" /></a>
+            <a href="#"><img src="/Icons/watsapp.svg"  alt="WhatsApp"  className="w-[34px] h-[34px] sm:w-[38px] sm:h-[38px] lg:w-[40px] lg:h-[40px] xl:w-[48px] xl:h-[48px]" /></a>
+            <a href="#"> <img src="/Icons/facebook.svg" alt="Facebook"  className="w-[34px] h-[34px] sm:w-[38px] sm:h-[38px] lg:w-[40px] lg:h-[40px] xl:w-[48px] xl:h-[48px]" /></a>
           </div>
         </div>
       </div>

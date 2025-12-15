@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ask Expert — Next.js + Tailwind Template Documentation</title>
+<style>
+:root{
+  --bg:#0b0e14;--card:#111827;--muted:#a5b1c6;--text:#eef2f7;--brand:#22c55e;--border:#263042;
+}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#0b0e14,#0a0d12);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+.container{max-width:1080px;margin:0 auto;padding:28px 18px}
+header{position:sticky;top:0;background:rgba(17,24,39,.75);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:5}
+h1{margin:10px 0;font-size:clamp(28px,4vw,40px)}
+.badge{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:6px 10px;color:var(--muted);font-size:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;margin:16px 0}
+h2{margin:0 0 10px}h3{margin:14px 0 8px}p,li{color:var(--muted);line-height:1.7}
+pre{background:#0b0e14;border:1px solid #1b2130;border-radius:10px;padding:12px;overflow:auto}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+.img{border:1px dashed #2a3143;border-radius:12px;overflow:hidden;margin:10px 0}
+.img img{display:block;width:100%;height:auto}
+.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:14px 0}
+.toc a{display:block;text-decoration:none;color:var(--text);background:var(--card);border:1px solid var(--border);padding:10px;border-radius:10px}
+.note{border-left:3px solid var(--brand);padding:10px 12px;background:rgba(34,197,94,.07);border-radius:8px;margin:10px 0}
+kbd{border:1px solid var(--border);background:#0e121a;padding:2px 6px;border-radius:6px}
+small, .small{color:#94a3b8}
+ul.tight>li{margin:4px 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>Ask Expert — Next.js + Tailwind Template Documentation</h1>
+    <div class="badge">Next.js 14+/15 • Node 18+ • Tailwind CSS</div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h2>Table of Contents</h2>
+    <div class="toc">
+      <a href="#intro">1. Introduction</a>
+      <a href="#requirements">2. Requirements</a>
+      <a href="#install">3. Installation</a>
+      <a href="#structure">4. Project Structure</a>
+      <a href="#edit">5. Editing the Template</a>
+      <a href="#tailwind">6. Tailwind Styling</a>
+      <a href="#update">7. Updating the Template</a>
+      <a href="#build">8. Build & Deploy</a>
+      <a href="#faq">9. FAQ / Troubleshooting</a>
+    </div>
+  </section>
+
+  <section id="intro" class="card">
+    <h2>1) Introduction</h2>
+    <p>Thank you for purchasing <strong>Ask Expert</strong>. This doc explains how to install, edit, and update the template.
+  </section>
+
+  <section id="requirements" class="card">
+    <h2>2) Requirements</h2>
+    <ul class="tight">
+      <li><strong>Node.js</strong> 18+ (LTS)</li>
+      <li><strong>npm</strong> or <strong>yarn</strong> or <strong>pnpm</strong></li>
+      <li>Basic React/Next.js/Tailwind knowledge</li>
+    </ul>
+  </section>
+
+  <section id="install" class="card">
+    <h2>3) Installation</h2>
+    <pre><code># install deps
+npm install
+# run dev
+npm run dev
+# open http://localhost:3000</code></pre>
+    <div class="img"><img src="images/02-install.png" alt="Install dependencies"></div>
+    <div class="img"><img src="images/03-run-dev.png" alt="Run dev server"></div>
+  </section>
+
+  <section id="structure" class="card">
+    <h2>4) Project Structure</h2>
+<pre><code>Ask-expert/
+├─ documentation/ 
+│  ├─ images/
+│  ├─ index.html
+├─ public/                   # static assets (images, icons, fonts)
+├─ src/
+│  ├─ app/                   # App Router pages (or 'pages/' for Pages Router)
+│  │  ├─ layout.(tsx|jsx)
+│  │  ├─ page.(tsx|jsx)
+│  ├─ ....
+├─ tailwind.config.(js|ts)
+├─ postcss.config.js
+├─ package.json
+└─ README.md</code></pre>
+  </section>
+
+  <section id="edit" class="card">
+    <h2>5) Editing the Template</h2>
+    <h3>5.1 Pages</h3>
+    <p>Create a new page at <code>src/app/<gt>page.tsx</code></p>
+export default function ContactPage() {
+  return &lt;main className="container mx-auto py-10"&gt;Contact&lt;/main&gt;;
+}</code></pre>
+
+    <h3>5.2 Components</h3>
+    <p>Most UI blocks are in <code>src/assets/components/</code>. Typical components in this template:</p>
+    <ul>
+      <li><strong>BookingClient.tsx</strong> — section with booking clients</li>
+      <li><strong>BookingsClient.jsx</strong> — Bookings of clients</li>
+    </ul>
+<pre><code>import ContactUs from "@/assets/components/contact";
+export default function ContactUs()</code></pre>
+
+    <h3>5.3 Assets</h3>
+    <ul>
+      <li>Put images in <code>/public</code> and reference them as <code>/Images/your-file.png</code>.</li>
+      <li>Prefer <code>next/image</code> for optimization.</li>
+    </ul>
+
+    <h3>5.4 SEO & Metadata</h3>
+    <p>Update global meta in <code>src/app/layout.tsx</code> via Next.js <code>metadata</code>. Per-page titles can be set inside each page.</p>
+  </section>
+
+  <section id="tailwind" class="card">
+    <h2>6) Tailwind Styling</h2>
+    <p>Global config is in <code>tailwind.config.js</code></p>
+<pre><code>// tailwind.config.js
+module.exports = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}"
+  ],
+  theme: {
+    extend: {
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" }
+        }
+      },
+      animation: {
+        marquee: "marquee 25s linear infinite"
+      }
+    }
+  },
+  plugins: []
+};
+
+}</code></pre>
+  </section>
+
+  <section id="update" class="card">
+    <h2>7) Updating the Template</h2>
+<pre><code>npm outdated
+npm update
+# for major bumps:
+npm install
+npm run build</code></pre>
+    <div class="img"><img src="images/10-update.png" alt="Update"></div>
+  </section>
+
+  <section id="build" class="card">
+    <h2>8) Build & Deploy</h2>
+    <h3>Production build</h3>
+<pre><code>npm run build
+npm start   # runs the compiled app</code></pre>
+    <div class="img"><img src="images/08-build.png" alt="Production build"></div>
+
+    <h3>Deploy to Vercel (Recommended)</h3>
+    <ol>
+      <li>Push your code to GitHub.</li>
+      <li>Go to <a href="https://vercel.com" target="#" rel="noreferrer">Vercel</a> → New Project → Import Git Repo.</li>
+      <li>Framework preset: <strong>Next.js</strong>. Keep defaults and click <em>Deploy</em>.</li>
+    </ol>
+  </section>
+
+  <section id="faq" class="card">
+    <h2>9) FAQ / Troubleshooting</h2>
+    <ul>
+      <li><strong>Styles not applied?</strong> Ensure all source paths are listed in <code>content</code> array of <code>tailwind.config.js</code>. Restart dev server.</li>
+      <li><strong>Images not showing?</strong> Place assets in <code>/public</code> and use absolute path starting with <code>/</code>.</li>
+      <li><strong>Build errors?</strong> Remove <code>.next/</code> & reinstall: <code>rm -rf .next node_modules && npm i</code>.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

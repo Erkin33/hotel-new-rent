@@ -131,7 +131,15 @@ export default function AuthClient({
   };
 
   return (
-    <main className="px-4 sm:px-6 lg:px-[150px] max-[1150px]:!px-[75px] max-[600px]:!px-[6px] -mt-16 pb-16">
+    <main className="
+  px-4 sm:px-6 lg:px-[150px]
+  max-[1150px]:!px-[75px]
+  max-[600px]:!px-[6px]
+  -mt-16 pb-16 overflow-y-auto
+  max-[440px]:mt-0
+  max-[440px]:pb-4
+">
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Левый — промо */}
         <section className="rounded-2xl p-6 lg:p-10 bg-gradient-to-br from-[#1A1E43] via-[#1f2a6b] to-[#0b1025] text-white shadow-[0_12px_40px_rgba(0,0,0,0.25)]">
@@ -161,126 +169,187 @@ export default function AuthClient({
         </section>
 
         {/* Правый — форма */}
-        <section className="rounded-2xl border border-black/10 bg-white p-5 sm:p-6 lg:p-8">
-          {/* переключатель */}
-          <div className="mb-4 inline-flex rounded-xl border border-black/10 p-1 bg-[#F9FAFB]">
-            <button
-              onClick={() => setMode("register")}
-              className={`h-10 px-4 rounded-lg ${!isLogin ? "bg-white border border-black/10 font-semibold" : "text-black/70"}`}
-            >
-              Create account
-            </button>
-            <button
-              onClick={() => setMode("login")}
-              className={`h-10 px-4 rounded-lg ${isLogin ? "bg-white border border-black/10 font-semibold" : "text-black/70"}`}
-            >
-              Sign in
-            </button>
-          </div>
+<section
+  className="
+    rounded-2xl border border-black/10 bg-white
+    p-5 sm:p-6 lg:p-8
+    max-[440px]:p-3
+    max-[440px]:max-w-full
+    max-[440px]:box-border
+  "
+>
+  {/* переключатель */}
+  <div
+    className="
+      mb-4 inline-flex rounded-xl border border-black/10 p-1 bg-[#F9FAFB]
+      max-[440px]:w-full
+      max-[440px]:box-border
+    "
+  >
+    <button
+      onClick={() => setMode("register")}
+      className={`h-10 px-4 rounded-lg ${
+        !isLogin ? "bg-white border border-black/10 font-semibold" : "text-black/70"
+      } max-[440px]:flex-1 max-[440px]:px-2`}
+    >
+      Create account
+    </button>
+    <button
+      onClick={() => setMode("login")}
+      className={`h-10 px-4 rounded-lg ${
+        isLogin ? "bg-white border border-black/10 font-semibold" : "text-black/70"
+      } max-[440px]:flex-1 max-[440px]:px-2`}
+    >
+      Sign in
+    </button>
+  </div>
 
-          <form onSubmit={submit} className="grid gap-3">
-            {!isLogin ? (
-              <>
-                <label className="text-sm font-medium text-[#222243]">
-                  Username *
-                  <input
-                    className="mt-1 h-10 w-full rounded-md border border-black/10 px-3 outline-none"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                  />
-                </label>
-                <label className="text-sm font-medium text-[#222243]">
-                  Email *
-                  <input
-                    type="email"
-                    className="mt-1 h-10 w-full rounded-md border border-black/10 px-3 outline-none"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </label>
-                <div className="flex items-center gap-3">
-                  <AvatarPreview src={avatar} />
-                  <label className="text-sm text-[#222243]">
-                    <span className="block mb-1 font-medium">Avatar</span>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={(e) => onPickAvatar(e.target.files?.[0])}
-                      className="text-sm"
-                    />
-                  </label>
-                </div>
-              </>
-            ) : (
-              <label className="text-sm font-medium text-[#222243]">
-                Email or Username *
-                <input
-                  className="mt-1 h-10 w-full rounded-md border border-black/10 px-3 outline-none"
-                  value={loginId}
-                  onChange={(e) => setLoginId(e.target.value)}
-                />
-              </label>
-            )}
+  <form
+    onSubmit={submit}
+    className="grid gap-3 max-[440px]:gap-2 max-[440px]:w-full max-[440px]:box-border"
+  >
+    {!isLogin ? (
+      <>
+        <label className="text-sm font-medium text-[#222243] w-full">
+          Username *
+          <input
+            className="
+              mt-1 h-10 w-full
+              rounded-md border border-black/10
+              px-3 outline-none
+              max-[440px]:px-2
+              max-[440px]:box-border
+            "
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </label>
 
-            <label className="text-sm font-medium text-[#222243]">
-              Password *
-              <input
-                type="password"
-                className="mt-1 h-10 w-full rounded-md border border-black/10 px-3 outline-none"
-                value={pass}
-                onChange={(e) => setPass(e.target.value)}
-              />
-            </label>
+        <label className="text-sm font-medium text-[#222243] w-full">
+          Email *
+          <input
+            type="email"
+            className="
+              mt-1 h-10 w-full
+              rounded-md border border-black/10
+              px-3 outline-none
+              max-[440px]:px-2
+              max-[440px]:box-border
+            "
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </label>
 
-            {!isLogin && (
-              <label className="text-sm font-medium text-[#222243]">
-                Confirm password *
-                <input
-                  type="password"
-                  className="mt-1 h-10 w-full rounded-md border border-black/10 px-3 outline-none"
-                  value={confirm}
-                  onChange={(e) => setConfirm(e.target.value)}
-                />
-              </label>
-            )}
+        <div className="flex items-center gap-3 max-[440px]:w-full max-[440px]:box-border">
+          <AvatarPreview src={avatar} />
+          <label className="text-sm text-[#222243] w-full">
+            <span className="block mb-1 font-medium">Avatar</span>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => onPickAvatar(e.target.files?.[0])}
+              className="text-sm max-[440px]:w-full"
+            />
+          </label>
+        </div>
+      </>
+    ) : (
+      <label className="text-sm font-medium text-[#222243] w-full">
+        Email or Username *
+        <input
+          className="
+            mt-1 h-10 w-full
+            rounded-md border border-black/10
+            px-3 outline-none
+            max-[440px]:px-2
+            max-[440px]:box-border
+          "
+          value={loginId}
+          onChange={(e) => setLoginId(e.target.value)}
+        />
+      </label>
+    )}
 
-            {error && <div className="text-sm text-rose-600">{error}</div>}
+    <label className="text-sm font-medium text-[#222243] w-full">
+      Password *
+      <input
+        type="password"
+        className="
+          mt-1 h-10 w-full
+          rounded-md border border-black/10
+          px-3 outline-none
+          max-[440px]:px-2
+          max-[440px]:box-border
+        "
+        value={pass}
+        onChange={(e) => setPass(e.target.value)}
+      />
+    </label>
 
-            <button
-              disabled={busy}
-              className="mt-1 h-11 rounded-md bg-[#1E2352] text-white font-semibold hover:opacity-90 disabled:opacity-60"
-            >
-              {busy ? "Please wait..." : isLogin ? "Sign In" : "Create account"}
-            </button>
+    {!isLogin && (
+      <label className="text-sm font-medium text-[#222243] w-full">
+        Confirm password *
+        <input
+          type="password"
+          className="
+            mt-1 h-10 w-full
+            rounded-md border border-black/10
+            px-3 outline-none
+            max-[440px]:px-2
+            max-[440px]:box-border
+          "
+          value={confirm}
+          onChange={(e) => setConfirm(e.target.value)}
+        />
+      </label>
+    )}
 
-            <div className="mt-2 text-sm">
-              {isLogin ? (
-                <span>
-                  Don’t have an account?{" "}
-                  <button
-                    type="button"
-                    className="text-[#1A1E43] underline"
-                    onClick={() => setMode("register")}
-                  >
-                    Create one
-                  </button>
-                  .
-                </span>
-              ) : (
-                <span>
-                  Already registered?{" "}
-                  <button
-                    type="button"
-                    className="text-[#1A1E43] underline"
-                    onClick={() => setMode("login")}
-                  >
-                    Sign in
-                  </button>
-                </span>
-              )}
-            </div>
-          </form>
-        </section>
+    {error && <div className="text-sm text-rose-600 w-full">{error}</div>}
+
+    <button
+      disabled={busy}
+      className="
+        mt-1 h-11 w-full
+        rounded-md bg-[#1E2352]
+        text-white font-semibold
+        hover:opacity-90 disabled:opacity-60
+        max-[440px]:px-2
+        max-[440px]:box-border
+      "
+    >
+      {busy ? "Please wait..." : isLogin ? "Sign In" : "Create account"}
+    </button>
+
+    <div className="mt-2 text-sm w-full max-[440px]:text-[13px]">
+      {isLogin ? (
+        <span>
+          Don’t have an account?{" "}
+          <button
+            type="button"
+            className="text-[#1A1E43] underline"
+            onClick={() => setMode("register")}
+          >
+            Create one
+          </button>
+          .
+        </span>
+      ) : (
+        <span>
+          Already registered?{" "}
+          <button
+            type="button"
+            className="text-[#1A1E43] underline"
+            onClick={() => setMode("login")}
+          >
+            Sign in
+          </button>
+        </span>
+      )}
+    </div>
+  </form>
+</section>
+
       </div>
     </main>
   );

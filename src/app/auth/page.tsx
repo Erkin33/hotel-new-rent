@@ -1,13 +1,16 @@
 // server component
 import AuthClient from "../auth/AuthClient";
 
-export default function AuthPage({
+export default async function AuthPage({
   searchParams,
 }: {
-  searchParams: { mode?: string; returnTo?: string };
+  searchParams: Promise<{ mode?: string; returnTo?: string }>;
 }) {
-  const mode = (searchParams?.mode === "login" ? "login" : "register") as "login" | "register";
-  const returnTo = searchParams?.returnTo || "/";
+  const sp = await searchParams;
+
+  const mode = (sp?.mode === "login" ? "login" : "register") as "login" | "register";
+  const returnTo = sp?.returnTo || "/";
+
   return (
     <div className="w-full">
       {/* верхняя полоса как на других страницах */}

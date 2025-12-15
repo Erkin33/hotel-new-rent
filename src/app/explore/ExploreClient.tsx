@@ -48,7 +48,7 @@ const DESTS: Destination[] = [
     id: "paris-classic",
     title: "Paris Classics",
     subtitle: "Left Bank cafés & art walks",
-    img: "/Category/Hôtel-Raphael.svg",
+    img: "/Category/Hotel-Raphael.svg",
     priceFrom: 2100,
     tag: ["city", "romance"],
     href: "/hotels?country=Paris",
@@ -274,7 +274,7 @@ function Trending() {
   const items = [
     { t: "Best rooftops", s: "Tokyo · New York · Singapore", img: "/TopRated/The-Spectator-Hotel.svg" },
     { t: "Beachfront escapes", s: "Dubai · Miami · Bali", img: "/TopRated/Marseilles-Beachfront-Hotel.svg" },
-    { t: "Historic districts", s: "Paris · Istanbul · Rome", img: "/Category/Hôtel-Raphael.svg" },
+    { t: "Historic districts", s: "Paris · Istanbul · Rome", img: "/Category/Hotel-Raphael.svg" },
   ];
   const [i, setI] = useState(0);
 

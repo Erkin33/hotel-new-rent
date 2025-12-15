@@ -131,7 +131,12 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[60] bg-[#1A1E43]/90 backdrop-blur">
+    <header
+  className={`
+    fixed top-0 left-0 right-0 z-[60] bg-[#1A1E43]/90 backdrop-blur
+    ${open ? "h-[100dvh] overflow-y-auto overscroll-contain" : ""}
+  `}
+>
       <div className="w-full h-[72px] sm:h-[88px] lg:h-[100px] flex justify-between items-center px-4 sm:px-6 lg:px-[150px] max-[1150px]:!px-[75px] max-[600px]:!px-[5px] max-[1336px]:px-6">
         {/* logo */}
         <Link href="/" className="flex items-center">

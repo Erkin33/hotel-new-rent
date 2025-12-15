@@ -117,7 +117,7 @@ export const HOTELS: Hotel[] = [
     rating: 9.2,
     reviews: 740,
     price: 2100,
-    image: "/Category/Hôtel-Raphael.svg",
+    image: "/Category/Hotel-Raphael.svg",
     amenities: ["wifi", "spa", "breakfast"],
   },
   // New York

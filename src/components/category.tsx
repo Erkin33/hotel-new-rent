@@ -44,7 +44,7 @@ export default function Category() {
       size: "4,500 Sq Ft",
     },
     {
-      image: "/Category/Hôtel-Raphael.svg",
+      image: "/Category/Hotel-Raphael.svg",
       heading: "Alpine Mountain Lodge",
       cost: "1850",
       period: "Day and Night",
